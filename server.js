@@ -2,7 +2,6 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const path = require("path");
-const engine = require("consolidate");
 
 //incluindo BodyParser no projeto para lidar com dados enviados pelo <form>
 app.use(bodyParser.urlencoded({ extended: true }))
