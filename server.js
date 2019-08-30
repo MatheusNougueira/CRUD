@@ -5,12 +5,10 @@ app.listen(3000, function(){
     console.log("Server inciado na porta 3000")
 });
 
-//devolver um response quando a requisição get bater na raíz
-app.get("/", (req, res) => {
-    res.send("Iniciado")
-});
+//importando 
+app.set("view engine", "ejs");
 
-//testando rotas
-app.get("/CRUD", (req, res) => {
-    res.send("CRUD")
+//apontando para renderizar o arquivo no navegador
+app.get("/", (req, res) => {
+    res.render("index.ejs")
 });
