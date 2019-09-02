@@ -5,9 +5,9 @@ const path = require("path");
 const MongoClient = require("mongodb").MongoClient;
 
 //iniciando db
-const uri = "mongodb+srv://MatheusNougueira:JK4GrCs2cgT0ZnCI@cluster0-wbsv9.mongodb.net/test?retryWrites=true&w=majority";
+const url = "mongodb+srv://MatheusNougueira:JK4GrCs2cgT0ZnCI@cluster0-wbsv9.mongodb.net/test?retryWrites=true&w=majority";
 
-MongoClient.connect(uri, (err, client) => {
+MongoClient.connect(url, (err, client) => {
     if (err)
         return console.log(err);
     db = client.db("MatheusNougueira"),
