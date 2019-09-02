@@ -2,14 +2,23 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const path = require("path");
+const MongoClient = require("mongodb").MongoClient;
+
+//iniciando db
+const uri = "mongodb+srv://MatheusNougueira:JK4GrCs2cgT0ZnCI@cluster0-wbsv9.mongodb.net/test?retryWrites=true&w=majority";
+
+MongoClient.connect(uri, (err, client) => {
+    if (err)
+        return console.log(err);
+    db = client.db("MatheusNougueira"),
+
+        app.listen(3000, function () {
+            console.log("Server inciado na porta 3000")
+        });
+});
 
 //incluindo BodyParser no projeto para lidar com dados enviados pelo <form>
-app.use(bodyParser.urlencoded({ extended: true }))
-
-//mensagem no terminal ao iniciar servidor
-app.listen(3000, function(){
-    console.log("Server inciado na porta 3000");
-});
+app.use(bodyParser.urlencoded({ extended: true }));
 
 //apontando direção 
 app.use(express.static(path.join(__dirname, "views")));
@@ -21,7 +30,15 @@ app.get("/", (req, res) => {
 
 //rota post
 app.post("/show", (req, res) => {
-    console.log(req.body)
 
-    return res.send("Dados salvos com sucesso") //retornará ao usuário a mensagem
+    //criando coleção para armazenamento de dados
+    db.collection("data").save(req.body, (err, result) => {
+        if (err)
+            return console.log(err);
+
+        console.log("Dados salvos com sucesso")
+
+        //redirecionando usuário para a raíz após realizar cadastro
+        res.redirect("/")
+    })
 });

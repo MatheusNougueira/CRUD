@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 
 <html>
+
 <head>
   <meta charset="UTF-8">
   <title>My CRUD in Node.js</title>
   <link rel="stylesheet" type="text/css" href="./styles.css">
 </head>
+
 <body>
 
   <div class="form">
     <h1>Registrar</h1>
     <form action="/show" method="POST">
-        <input type="text" placeholder="First name" name="name">
-        <input type="text" placeholder="Last name" name="surname">
-        <button class="btn" type="submit">Submit</button>
+      <input type="text" placeholder="First name" name="name">
+      <input type="text" placeholder="Last name" name="surname">
+      <input type="text" placeholder="Course" name="course">
+      <button class="btn" type="submit">Submit</button>
     </form>
   </div>
 
-    <!-- importações -->
-    <script src="../app.js"></script>
-    <script src="../server.js"></script>
+  <!-- importações -->
+  <script src="../app.js"></script>
+  <script src="../server.js"></script>
 </body>
+
 </html>
