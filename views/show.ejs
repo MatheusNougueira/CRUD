@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
@@ -7,32 +7,35 @@
     <link rel="stylesheet" type="text/css" href="./styles.css">
 </head>
 
-<body>
+<body class="show">
 
-    <h2>Registros<h2>
-            <table border="1" style="text-align: center">
-                <thead>
-                    <tr>
-                        <td>Nome</td>
-                        <td>Sobrenome</td>
-                        <td>Course</td>
-                    </tr>
-                </thead>
-                <tbody>
+    <h1>Registros</h1>
+    <table border="1" style="text-align: center">
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Last name</td>
+                <td>Course</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+        <tbody>
 
-                    <!-- irá percorrer o conteúdo no banco de dados -->
-                    <% data.forEach(function(details) { %>
-                    <!-- irá mostrar o conteúdo criado -->
-                    <tr>
-                        <td><%= details.name %></td>
-                        <td><%= details.surname %></td>
-                        <td><%= details.course %></td>
+            <!-- irá percorrer o conteúdo no banco de dados -->
+            <% data.forEach(function(details) { %>
+            <!-- irá mostrar o conteúdo criado -->
+            <tr>
+                <td><%= details.name %></td>
+                <td><%= details.surname %></td>
+                <td><%= details.course %></td>
+                <td><a href="/edit/<%= details._id %>" class="btn">Edit</a> - <a href="/delete/<%= details._id %>" class="btn">Delet</a></td>
 
-                    </tr>
-                    <% }) %>
-                </tbody>
-                <button class="btn"><a href="/">Voltar</a></button>
+            </tr>
+            <% }) %>
 
+        </tbody>
+    </table>
+    <button class="btn"><a href="/">New</button>
 </body>
 
 </html>
