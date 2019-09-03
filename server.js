@@ -28,6 +28,18 @@ app.get("/", (req, res) => {
     res.render("../views/index")
 });
 
+app.get('/', (req, res) => {
+    var cursor = db.collection('data').find()
+})
+
+app.get('/show', (req, res) => {
+    db.collection('data').find().toArray((err, results) => {
+        if (err) return console.log(err)
+        res.render('show.ejs', { data: results })
+
+    })
+})
+
 //rota post
 app.post("/show", (req, res) => {
 
@@ -39,6 +51,7 @@ app.post("/show", (req, res) => {
         console.log("Dados salvos com sucesso")
 
         //redirecionando usuário para a raíz após realizar cadastro
-        res.redirect("/")
+        res.redirect("/show")
+        })
     })
-});
+

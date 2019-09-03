@@ -12,11 +12,19 @@
 
   <div class="form">
     <h1>Registrar</h1>
+
     <form action="/show" method="POST">
       <input class="inp1" type="text" placeholder="First name" name="name" required>
       <input type="text" placeholder="Last name" name="surname" required>
-      <input type="text" placeholder="Course" name="course" required>
-      <button class="btn" type="submit">Submit</button>
+
+      <select name="course" required>
+        <option value="">Select Course</option>
+        <option value="ads">ADS</option>
+        <option value="ec">Engenharia da Computação</option>
+        <option value="cp">Ciência da Computação</option>
+      </select>
+
+      <button class="btn" value="Validar" onclick="VerificaCPF();" type="submit">Submit</button>
     </form>
   </div>
 

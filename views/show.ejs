@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My CRUD in Node.js</title>
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+</head>
+
+<body>
+
+    <h2>Registros<h2>
+            <table border="1" style="text-align: center">
+                <thead>
+                    <tr>
+                        <td>Nome</td>
+                        <td>Sobrenome</td>
+                        <td>Course</td>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <!-- irá percorrer o conteúdo no banco de dados -->
+                    <% data.forEach(function(details) { %>
+                    <!-- irá mostrar o conteúdo criado -->
+                    <tr>
+                        <td><%= details.name %></td>
+                        <td><%= details.surname %></td>
+                        <td><%= details.course %></td>
+
+                    </tr>
+                    <% }) %>
+                </tbody>
+                <button class="btn"><a href="/">Voltar</a></button>
+
+</body>
+
+</html>
